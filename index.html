@@ -82,18 +82,19 @@ let x=0
         let person=document.getElementById("input2").value
 
 
-        total=parseInt(total*persons)
+        x=parseInt(total*persons)
        }
 
        function reset(){
         total=0
+           x=0
         document.getElementById("display").innerText=0
          document.getElementById("input2").value=0
          document.getElementById('input1').value=0
        }
 
 
-       document.getElementById("display").innerText=total
+       document.getElementById("display").innerText=x
 
 
 
