@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>Tip calculator</title>
     <link ref="stylesheet" href="./index.css" >
 </head>
@@ -21,7 +20,7 @@
 
             Bill </br>
 
-            <input  placeholder="0" style="background-color: azure;height: 20px;" id="input1"  />
+            <input type="Number" placeholder="0" style="background-color: azure;height: 20px;" id="input1" onchange="tip1()" />
 
             <h3>select Tip %</h3>
 
@@ -38,7 +37,7 @@
 
             <h3>Number of people</h3>
 
-            <input style="background-color: azure;height: 20px;"placeholder="0" id="input2" />
+            <input style="background-color: azure;height: 20px;"placeholder="0" id="input2" onchange="tip1()"/>
 
 
             <div
@@ -49,7 +48,7 @@
                     <h3> Total</h3>
                     <p>/person</p>
 
-                    <h2 style="color: aliceblue;" id="display" onchange="tip2()" ></h2>
+                    <h2 style="color: aliceblue;" id="display" onchange="tip1()" ></h2>
                 </div>
 
                <button onclick="reset()" > RESET</button>
@@ -66,37 +65,40 @@
 
 
 
-       let total=document.getElementById('input1').value
+     
+    
+let f
 
-let x=0
 
        function tip1(x){
-
-          x=parseInt(total)+parseInt(x)   
+       
+         f=parseInt(document.getElementById('input1').value)+x
+        
+       
+        document.getElementById("display").innerHTML=f*document.getElementById("input2").value
+        
 
        }
 
 
 
-       function tip2(){
-        let person=document.getElementById("input2").value
+     
 
 
-        x=parseInt(total*persons)
-       }
+
+
 
        function reset(){
         total=0
-           x=0
         document.getElementById("display").innerText=0
-         document.getElementById("input2").value=0
-         document.getElementById('input1').value=0
+         document.getElementById("input2").value=""
+         document.getElementById('input1').value=""
        }
 
 
-       document.getElementById("display").innerText=x
+  
 
-
+       
 
 
     </script>
