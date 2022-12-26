@@ -21,7 +21,7 @@
 
             Bill </br>
 
-            <input placeholder="0" style="background-color: azure;height: 20px;" id="billinput"  />
+            <input  placeholder="0" style="background-color: azure;height: 20px;" id="input1"  />
 
             <h3>select Tip %</h3>
 
@@ -38,20 +38,21 @@
 
             <h3>Number of people</h3>
 
-            <input style="background-color: azure;height: 20px;"placeholder="0" />
+            <input style="background-color: azure;height: 20px;"placeholder="0" id="input2" />
 
 
             <div
-                style="display: inline-block;background-color: green;height: 200px;width: 350px;position: absolute;top:210px ;margin-left: 20px;border-radius: 10px;" >
+                style="display: inline-block;background-color: green;height: 200px;width: 350px;position: absolute;top:210px ;margin-left: 20px;border-radius: 10px;"  >
                 <div style="color: aliceblue;">
                     <h3>Tip Amount</h3>
                     <p>/person</p>
                     <h3> Total</h3>
                     <p>/person</p>
-                    <h2 id="display" style="color: aliceblue;"></h2>
+
+                    <h2 style="color: aliceblue;" id="display" onchange="tip2()" ></h2>
                 </div>
 
-
+               <button onclick="reset()" > RESET</button>
             </div>
 
         </div>
@@ -63,27 +64,35 @@
 
     <script type="text/javascript" >
 
-       let total=document.getElementById("billinput").value
 
 
+       let total=document.getElementById('input1').value
+
+let x=0
 
        function tip1(x){
 
-        total=parseInt(x+total)
+          x=parseInt(total)+parseInt(x)   
 
        }
 
 
 
-       function tip2(persons){
+       function tip2(){
+        let person=document.getElementById("input2").value
 
 
         total=parseInt(total*persons)
        }
 
+       function reset(){
+        total=0
+        document.getElementById("display").innerText=0
+         document.getElementById("input2").value=0
+       }
 
 
-       document.getElementById("display").innerHTML=total
+       document.getElementById("display").innerText=total
 
 
 
